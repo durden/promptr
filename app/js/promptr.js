@@ -1,4 +1,25 @@
 $(document).ready(function() {
+    $('#order').click(function() {
+        var html = '<ul id="sortable">';
+        $("input:checked").each(function() {
+            html += '<li class="ui-state-default">' + $(this).attr('name') + '</li>';
+        });
+
+        html += '</ul>';
+        $('#steps li:first-child').replaceWith(html);
+
+        /* Drag/drop sorting */
+		$( "#sortable" ).sortable({
+			revert: true
+		});
+		$( "#draggable" ).draggable({
+			connectToSortable: "#sortable",
+			helper: "clone",
+			revert: "invalid"
+		});
+		$( "ul, li" ).disableSelection();
+   });
+
     var options = new Array();
 
     options['bell'] = {'code': '\\a',
