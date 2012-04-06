@@ -1,8 +1,10 @@
 $(document).ready(function() {
-    $('#order').click(function() {
-        var html = '<ul id="sortable">';
+    $('#button').click(function() {
+        var html = '<ul id="sortable" class="nav nav-tabs nav-stacked">';
         $("input:checked").each(function() {
-            html += '<li class="ui-state-default">' + $(this).attr('name') + '</li>';
+            var option = $(this).attr('name');
+            html += '<li class="ui-state-default"><a href="#" title="' +
+                    options[option]['help'] + '">' + option + '</a></li>';
         });
 
         html += '</ul>';
@@ -18,6 +20,8 @@ $(document).ready(function() {
 			revert: "invalid"
 		});
 		$( "ul, li" ).disableSelection();
+        $(this).text('Color \'em');
+        $('a[title]').tooltip();
    });
 
     var options = new Array();
