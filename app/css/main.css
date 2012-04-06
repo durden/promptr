@@ -6,3 +6,11 @@ ol#steps {
     list-style-position: inside;
     margin-top: 100px;
 }
+
+ol#steps li {
+    text-align: left;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
