@@ -1,0 +1,8 @@
+body {
+    text-align: center;
+}
+
+ol#steps {
+    list-style-position: inside;
+    margin-top: 100px;
+}
