@@ -113,6 +113,9 @@ $(document).ready(function() {
         $('#prompt').show();
 
         var export_text = 'export PS1="' + text_prompt + '"';
+
+        /* Remove any just in case user hit submit twice */
+        $('.add-on').children('.clippy').remove();
         $('.add-on').append('<span class="clippy">' + export_text + '</span>');
         $('.clippy').clippy();
     }
