@@ -12,8 +12,7 @@ mashup of the following great open source tools:
 
 ##Demo
 
-There's a live version running on [heroku](http://heroku.com) at [http://promptr.herokuapp.com/](promptr).
-
+There's a live version running on [heroku](http://heroku.com) at [promptr](http://promptr.herokuapp.com/).
 
 ###TODO
 
