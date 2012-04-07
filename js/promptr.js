@@ -43,65 +43,6 @@ $(document).ready(function() {
                           'help': 'Command number (this will count up at ' +
                                   'each prompt, as long as you type something)'};
 
-    /* START */
-
-    html = '<h2>Load it up</h2><div class="control-group">' +
-           '<div class="controls">';
-
-    for (var option in options) {
-        html += '<label class="control-label checkbox" title="' +
-                options[option]['help'] + '"> <input type="checkbox" name="' +
-                option + '" class="chkbox"/>' + option + '</label>';
-    }
-
-    html += '</div></div>';
-
-    var selection_li = $('#pick-options');
-    selection_li.append(html);
-
-    $('label[title]').tooltip();
-    $('span[title]').tooltip();
-
-    /* Only show the prompt when we've successfully built it up */
-    $('#prompt').hide();
-
-    $('#button').click(function() {
-        if ($(this).text() == 'Order \'em') {
-            order_step();
-            $(this).text('Show Prompt');
-            $('a[title]').tooltip();
-        } else {
-            compile_prompt();
-            // Not fully implemented yet...
-            //color_step();
-        }
-    });
-
-    function order_step() {
-        var html = '<li><h2>Order your options</h2>' +
-                   '<ul id="sortable" class="nav nav-tabs nav-stacked">';
-        $("input:checked").each(function() {
-            var option = $(this).attr('name');
-            html += '<li class="ui-state-default"><a href="#" title="' +
-                    options[option]['help'] + '" name="' + option + '">' +
-                    option + '</a></li>';
-        });
-
-        html += '</ul></li>';
-        $('#order-options').replaceWith(html);
-
-        /* Drag/drop sorting */
-        $("#sortable").sortable({
-            revert: true
-        });
-        $("#draggable").draggable({
-            connectToSortable: "#sortable",
-            helper: "clone",
-            revert: "invalid"
-        });
-        $("ul, li").disableSelection();
-    };
-
     function compile_prompt() {
         var text_prompt = '';
         $('#sortable').children().each(function() {
@@ -146,4 +87,68 @@ $(document).ready(function() {
         });
      }
 
+    function order_step() {
+        var html = '';
+        if ($('input:checked').length > 0) {
+            $('.form-actions').show();
+            $('#order-options').show();
+        } else {
+            $('.form-actions').hide();
+            $('#order-options').hide();
+        }
+
+        $("input:checked").each(function() {
+            var option = $(this).attr('name');
+            html += '<li class="ui-state-default"><a href="#" title="' +
+                    options[option]['help'] + '" name="' + option + '">' +
+                    option + '</a></li>';
+        });
+
+        $('#sortable').html(html);
+
+        /* Drag/drop sorting */
+        $("#sortable").sortable({
+            revert: true
+        });
+        $("#draggable").draggable({
+            connectToSortable: "#sortable",
+            helper: "clone",
+            revert: "invalid"
+        });
+        $("ul, li").disableSelection();
+    };
+
+    /* START */
+    html = '<h2>Load it up</h2><div class="control-group">' +
+           '<div class="controls">';
+
+    for (var option in options) {
+        html += '<label class="control-label checkbox" title="' +
+                options[option]['help'] + '"> <input type="checkbox" name="' +
+                option + '" class="chkbox"/>' + option + '</label>';
+    }
+
+    html += '</div></div>';
+
+    var selection_li = $('#pick-options');
+    selection_li.append(html);
+
+    $('input').live('change', function() {
+        order_step();
+    });
+
+    $('label[title]').tooltip();
+    $('span[title]').tooltip();
+
+    /* Only show the prompt/controls when we've successfully built it up */
+    $('#prompt').hide();
+    $(".form-actions").hide();
+    $("#order-options").hide();
+
+    $('#button').click(function() {
+        $('a[title]').tooltip();
+        compile_prompt();
+        // Not fully implemented yet...
+        //color_step();
+    });
 });
