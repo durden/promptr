@@ -56,8 +56,8 @@ $(document).ready(function() {
 
     html += '</div></div>';
 
-    var first_child = $('#steps li:first-child');
-    $('#steps li:first-child').append(html);
+    var selection_li = $('#pick-options');
+    selection_li.append(html);
 
     $('label[title]').tooltip();
     $('span[title]').tooltip();
@@ -68,7 +68,7 @@ $(document).ready(function() {
     $('#button').click(function() {
         if ($(this).text() == 'Order \'em') {
             order_step();
-            $(this).text('Color \'em');
+            $(this).text('Show Prompt');
             $('a[title]').tooltip();
         } else {
             compile_prompt();
@@ -78,7 +78,8 @@ $(document).ready(function() {
     });
 
     function order_step() {
-        var html = '<ul id="sortable" class="nav nav-tabs nav-stacked">';
+        var html = '<li><h2>Order your options</h2>' +
+                   '<ul id="sortable" class="nav nav-tabs nav-stacked">';
         $("input:checked").each(function() {
             var option = $(this).attr('name');
             html += '<li class="ui-state-default"><a href="#" title="' +
@@ -86,8 +87,8 @@ $(document).ready(function() {
                     option + '</a></li>';
         });
 
-        html += '</ul>';
-        $('#steps li:first-child').replaceWith(html);
+        html += '</ul></li>';
+        $('#order-options').replaceWith(html);
 
         /* Drag/drop sorting */
         $("#sortable").sortable({
