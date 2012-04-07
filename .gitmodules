@@ -1,3 +1,0 @@
-[submodule "js/clippy"]
-	path = js/clippy
-	url = git://github.com/jimmysawczuk/clippy-jquery.git
