@@ -2,6 +2,8 @@
 <html>
     <head>
         <title>Promptr - Get your prompt just right</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="http://fonts.googleapis.com/css?family=Actor" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="css/colour_picker.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -13,20 +15,17 @@
                 <fieldset>
                 <legend>Customize your prompt</legend>
                 <ol id="steps">
-                    <li id="pick-options">
+                    <li id="pick">
                         <h2>Pick</h2>
                     </li>
-                    <li id="order-options">
+                    <li id="order">
                         <h2>Order</h2>
                         <ul id="sortable" class="nav nav-tabs nav-stacked">
                         </ul>
                     </li>
                     <!--<li id="color-options"></li>-->
-                    <li id="generate-it">
-                        <h2>Generate</h2>
-                        <div class="form-actions">
-                            <button type="button" id="button" class="pull-right btn btn-large btn-primary">Show Prompt</button>
-                        </div>
+                    <li id="generate">
+                        <h2><a href="#" id="button">Generate</a></h2>
                     </li>
                     <li id="copy">
                         <h2>Copy</h2>
@@ -37,6 +36,13 @@
                 </ol>
             </form>
         </div>
+        <blockquote>
+            <small>
+                Created with coffee and rock-n-roll music by
+                <a href="http://twitter.com/durden20">durden</a>.
+                To contribute <a href="http://github.com/durden/promptr">fork it</a>.
+            </small>
+        </blockquote>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/promptr.js"></script>

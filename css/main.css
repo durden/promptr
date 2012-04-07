@@ -1,5 +1,31 @@
 body {
     text-align: center;
+    font-family: Actor, Arial, Verdana, Helvetica, sans-serif;
+}
+
+#pick h2 {
+    color: #00ae68;
+}
+
+#order h2{
+    color: #0b5fa5;
+}
+
+#generate h2 {
+    color: #ff9400;
+}
+
+#generate {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#copy h2 {
+    color: #ff4c00;
+}
+
+blockquote {
+    margin-top: 70px;
 }
 
 ol#steps {

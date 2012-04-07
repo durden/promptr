@@ -91,11 +91,11 @@ $(document).ready(function() {
     function order_step() {
         var html = '';
         if ($('input:checked').length > 0) {
-            $('#generate-it').show();
-            $('#order-options').show();
+            $('#generate').show();
+            $('#order').show();
         } else {
-            $('#generate-it').hide();
-            $('#order-options').hide();
+            $('#generate').hide();
+            $('#order').hide();
             $("#copy").hide();
         }
 
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
     html += '</div></div>';
 
-    var selection_li = $('#pick-options');
+    var selection_li = $('#pick');
     selection_li.append(html);
 
     $('input').live('change', function() {
@@ -143,8 +143,8 @@ $(document).ready(function() {
 
     /* Only show the prompt/controls when we've successfully built it up */
     $('#prompt').hide();
-    $("#generate-it").hide();
-    $("#order-options").hide();
+    $("#generate").hide();
+    $("#order").hide();
     $("#copy").hide();
 
     $('#button').click(function() {
