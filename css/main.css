@@ -14,3 +14,7 @@ ol#steps li {
 .form-horizontal .control-label {
     text-align: left;
 }
+
+#sortable label {
+    display: inline;
+}
