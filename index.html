@@ -14,20 +14,27 @@
                 <legend>Customize your prompt</legend>
                 <ol id="steps">
                     <li id="pick-options">
+                        <h2>Pick</h2>
                     </li>
                     <li id="order-options">
-                        <h2>Order Options</h2>
+                        <h2>Order</h2>
                         <ul id="sortable" class="nav nav-tabs nav-stacked">
                         </ul>
                     </li>
                     <!--<li id="color-options"></li>-->
-                    <div class="form-actions">
-                        <button type="button" id="button" class="pull-right btn btn-large btn-primary">Show Prompt</button>
-                    </div>
+                    <li id="generate-it">
+                        <h2>Generate</h2>
+                        <div class="form-actions">
+                            <button type="button" id="button" class="pull-right btn btn-large btn-primary">Show Prompt</button>
+                        </div>
+                    </li>
+                    <li id="copy">
+                        <h2>Copy</h2>
+                        <div id="prompt" class="input-prepend pull-left">
+                            <span class="add-on" title="Copy to clipboard"></span><input class="span9" id="prompt-input" value="" type="text">
+                        </div>
+                    </li>
                 </ol>
-                    <div id="prompt" class="input-prepend pull-left">
-                        <span class="add-on" title="Copy to clipboard"></span><input class="span9" id="prompt-input" value="" type="text">
-                    </div>
             </form>
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>

@@ -59,6 +59,7 @@ $(document).ready(function() {
         $('.add-on').children('.clippy').remove();
         $('.add-on').append('<span class="clippy">' + export_text + '</span>');
         $('.clippy').clippy();
+        $("#copy").show();
     }
 
     function color_step() {
@@ -90,11 +91,12 @@ $(document).ready(function() {
     function order_step() {
         var html = '';
         if ($('input:checked').length > 0) {
-            $('.form-actions').show();
+            $('#generate-it').show();
             $('#order-options').show();
         } else {
-            $('.form-actions').hide();
+            $('#generate-it').hide();
             $('#order-options').hide();
+            $("#copy").hide();
         }
 
         $("input:checked").each(function() {
@@ -119,8 +121,7 @@ $(document).ready(function() {
     };
 
     /* START */
-    html = '<h2>Load it up</h2><div class="control-group">' +
-           '<div class="controls">';
+    html = '<div class="control-group"><div class="controls">';
 
     for (var option in options) {
         html += '<label class="control-label checkbox" title="' +
@@ -142,8 +143,9 @@ $(document).ready(function() {
 
     /* Only show the prompt/controls when we've successfully built it up */
     $('#prompt').hide();
-    $(".form-actions").hide();
+    $("#generate-it").hide();
     $("#order-options").hide();
+    $("#copy").hide();
 
     $('#button').click(function() {
         $('a[title]').tooltip();
